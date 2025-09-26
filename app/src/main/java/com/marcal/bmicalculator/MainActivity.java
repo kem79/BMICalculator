@@ -17,32 +17,51 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView resultText;
+    private Button calculateButton;
+    private RadioButton radioButtonMale;
+    private RadioButton radioButtonFemale;
+    private EditText editTextAge;
+    private EditText editTextFeet;
+    private EditText editTextInches;
+    private EditText editTextWeight;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        findViews();
 
+        setUpButtonClickListener();
 
-        TextView resultText = findViewById(R.id.text_view_result);
+    }
 
-        RadioButton radioButtonMale = findViewById(R.id.radio_button_male);
+    private void findViews() {
+        resultText = findViewById(R.id.text_view_result);
 
-        RadioButton radioButtonFemale = findViewById(R.id.radio_button_female);
+        radioButtonMale = findViewById(R.id.radio_button_male);
 
-        EditText editTextAge = findViewById(R.id.edit_text_age);
-        EditText editTextFeet = findViewById(R.id.edit_text_feet);
-        EditText editTextInches = findViewById(R.id.edit_text_inches);
-        EditText editTextWeight = findViewById(R.id.edit_text_weight);
+        radioButtonFemale = findViewById(R.id.radio_button_female);
 
-        Button calculateButton = findViewById(R.id.button_calculate);
+        editTextAge = findViewById(R.id.edit_text_age);
+        editTextFeet = findViewById(R.id.edit_text_feet);
+        editTextInches = findViewById(R.id.edit_text_inches);
+        editTextWeight = findViewById(R.id.edit_text_weight);
 
+        calculateButton = findViewById(R.id.button_calculate);
+    }
+
+    private void setUpButtonClickListener() {
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "I clicked on the button!", Toast.LENGTH_LONG).show();
+               calculateBmi();
             }
         });
+    }
 
+    private void calculateBmi() {
     }
 }
