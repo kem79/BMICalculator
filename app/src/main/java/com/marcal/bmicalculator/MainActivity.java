@@ -1,11 +1,13 @@
 package com.marcal.bmicalculator;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
         TextView resultText = findViewById(R.id.text_view_result);
 
         RadioButton radioButtonMale = findViewById(R.id.radio_button_male);
@@ -36,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         Button calculateButton = findViewById(R.id.button_calculate);
 
+        calculateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "I clicked on the button!", Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 }
